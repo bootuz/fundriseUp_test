@@ -24,22 +24,22 @@ export class DonationWindow extends BasePage {
 
     constructor(page: Page) {
         super(page)
-        const donationWidget = page.frameLocator('//iframe[@title="Donation Widget"]');
-        this.donateButton = new Button(donationWidget.locator('//button[@data-qa="donate-button"]'));
-        this.continueButton = new Button(donationWidget.locator('//button[@data-qa="card-continue"]'));
-        this.coverFeeButton = new Button(donationWidget.locator('//div[@data-qa="cover-fee-checkbox"]'));
-        this.currencySelector = new Select(donationWidget.locator('//select[@data-qa="currency-selector"]'));
-        this.creditCardButton = new Button(donationWidget.locator('//button[@data-qa="cc-button"]'));
-        this.giveMonthlyButton = new Button(donationWidget.locator('//button[@data-qa="give-monthly"]'));
-        this.donetaAmountButton = new Button(donationWidget.locator('//button[@data-qa="privacy-continue"]'));
-        this.expirationDateInput = new Input(donationWidget.frameLocator('//iframe[@title="Secure expiration date input frame"]').locator('//input[@name="exp-date"]'));
+        const donationWidget = page.frameLocator('[title="Donation Widget"]');
+        this.donateButton = new Button(donationWidget.locator('[data-qa="donate-button"]'));
+        this.continueButton = new Button(donationWidget.locator('[data-qa="card-continue"]'));
+        this.coverFeeButton = new Button(donationWidget.locator('[data-qa="cover-fee-checkbox"]'));
+        this.currencySelector = new Select(donationWidget.locator('[data-qa="currency-selector"]'));
+        this.creditCardButton = new Button(donationWidget.locator('[data-qa="cc-button"]'));
+        this.giveMonthlyButton = new Button(donationWidget.locator('[data-qa="give-monthly"]'));
+        this.donetaAmountButton = new Button(donationWidget.locator('[data-qa="privacy-continue"]'));
+        this.expirationDateInput = new Input(donationWidget.frameLocator('[title="Secure expiration date input frame"]').locator('[name="exp-date"]'));
        
-        this.CVCInput = new Input(donationWidget.frameLocator('//iframe[@title="Secure CVC input frame"]').locator('//input[@name="cvc"]'));
-        this.emailInput = new Input(donationWidget.locator('//input[@data-qa="personal-email"]'));
-        this.amountInput = new Input(donationWidget.locator('//input[@data-qa="amount"]'));
-        this.lastNameInput = new Input(donationWidget.locator('//input[@data-qa="personal-last-name"]'));
-        this.firstNameInput = new Input(donationWidget.locator('//input[@data-qa="personal-first-name"]'));
-        this.creditCardNumberInput = new Input(donationWidget.frameLocator('//iframe[@title="Secure card number input frame"]').locator('//input[@placeholder="Card number"]'));
+        this.CVCInput = new Input(donationWidget.frameLocator('[title="Secure CVC input frame"]').locator('[name="cvc"]'));
+        this.emailInput = new Input(donationWidget.locator('[data-qa="personal-email"]'));
+        this.amountInput = new Input(donationWidget.locator('[data-qa="amount"]'));
+        this.lastNameInput = new Input(donationWidget.locator('[data-qa="personal-last-name"]'));
+        this.firstNameInput = new Input(donationWidget.locator('[data-qa="personal-first-name"]'));
+        this.creditCardNumberInput = new Input(donationWidget.frameLocator('[title="Secure card number input frame"]').locator('[placeholder="Card number"]'));
 
     }
 

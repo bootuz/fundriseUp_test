@@ -12,9 +12,9 @@ export class MainPage extends BasePage {
 
     constructor(page: Page) {
         super(page);
-        this.giveNowButton = new Button(page.frameLocator('iframe').locator('//div[@qa="fun-element"]'));
+        this.giveNowButton = new Button(page.frameLocator('iframe').locator('[qa="fun-element"]'));
         this.donationWindow = new DonationWindow(page);
-        this.loader = new Loader(page.locator('//img[@class="fun-widget-backdrop"]'))
+        this.loader = new Loader(page.locator('.fun-widget-backdrop'))
     }
 
     async navigate() {

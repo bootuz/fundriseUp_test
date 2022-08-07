@@ -1,28 +1,23 @@
 import { test, expect } from '@playwright/test';
 import { MainPage } from '../src/pages/MainPage';
-import { Currency } from '../src/pages/modals/DonationWindow';
+import { CreditCardModel, Currency } from '../src/pages/modals/DonationWindow';
 
-test('homepage has Playwright in title and get started link linking to the intro page', async ({ page }) => {
+test('Error massage shows when you fill incorrect redit card data', async ({ page }) => {
   const mainPage = new MainPage(page);
   await mainPage.navigate();
   await mainPage.openDonationWindow();
   await mainPage.donationWindow.swithToGiveMonthly();
   await mainPage.donationWindow.selectCurrency(Currency.USD);
-  await mainPage.donationWindow.fillAmount("100");
+  await mainPage.donationWindow.fillAmount('100');
   await mainPage.donationWindow.clickDonateButton();
-
-  await page.frameLocator('//iframe[@title="Donation Widget"]').locator('//div[@data-qa="cover-fee-checkbox"]').click();
-  await page.frameLocator('//iframe[@title="Donation Widget"]').locator('//button[@data-qa="cc-button"]').click();
-
-  await page.frameLocator('//iframe[@title="Donation Widget"]').frameLocator('//iframe[@title="Secure card number input frame"]').locator('//input[@placeholder="Card number"]').fill("4242 4242 4242 4242");
-  await page.frameLocator('//iframe[@title="Donation Widget"]').frameLocator('//iframe[@title="Secure expiration date input frame"]').locator('//input[@name="exp-date"]').fill("0424");
-  await page.frameLocator('//iframe[@title="Donation Widget"]').frameLocator('//iframe[@title="Secure CVC input frame"]').locator('//input[@name="cvc"]').fill("000");
-  await page.frameLocator('//iframe[@title="Donation Widget"]').locator('//button[@data-qa="card-continue"]').click();
-
-  await page.frameLocator('//iframe[@title="Donation Widget"]').locator('//input[@data-qa="personal-first-name"]').fill("Astemir");
-  await page.frameLocator('//iframe[@title="Donation Widget"]').locator('//input[@data-qa="personal-last-name"]').fill("Boziev");
-  await page.frameLocator('//iframe[@title="Donation Widget"]').locator('//input[@data-qa="personal-email"]').fill('example@mail.ru');
-  await page.frameLocator('//iframe[@title="Donation Widget"]').locator('//button[@data-qa="privacy-continue"]').click();
+  await mainPage.donationWindow.clickCoverFeeButton();
+  await mainPage.donationWindow.clickCreditCardButton();
+  await mainPage.donationWindow.fillCreditCardData(CreditCardModel);
+  await mainPage.donationWindow.clickContinueButton();
+  await mainPage.donationWindow.fillFirstName('Astemir');
+  await mainPage.donationWindow.fillLastName('Boziev');
+  await mainPage.donationWindow.fillEmail('example@mail.ru')
+  await mainPage.donationWindow.clickDonateAmountButton();
 
   await page.waitForTimeout(4000);
 

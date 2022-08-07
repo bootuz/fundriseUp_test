@@ -14,7 +14,7 @@ export class MainPage extends BasePage {
         super(page);
         this.giveNowButton = new Button(page.frameLocator('iframe').locator('//div[@qa="fun-element"]'));
         this.donationWindow = new DonationWindow(page);
-        this.loader = new Loader(page.locator('//div[@class="fun-widget-backdrop-holder"]'))
+        this.loader = new Loader(page.locator('//img[@class="fun-widget-backdrop"]'))
     }
 
     async navigate() {
@@ -26,7 +26,7 @@ export class MainPage extends BasePage {
     async openDonationWindow() {
         await test.step("Open Donation Window", async () => {
             await this.giveNowButton.click();
-            await this.loader.waitUntillInvisible();
+            await this.loader.waitUntilInvisible();
         });
     }
 }

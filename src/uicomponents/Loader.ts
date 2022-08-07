@@ -8,8 +8,8 @@ export class Loader extends UIComponent {
         super(locator)
     }
 
-    async waitUntillInvisible() {
-        await this.locator.isHidden();
+    async waitUntilInvisible() {
+        await this.locator.waitFor({state: 'hidden'});
     }
 
 }

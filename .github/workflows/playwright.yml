@@ -3,7 +3,7 @@ on:
   pull_request:
     branches: [ main, master ]
   workflow_dispatch:
-    branches: [main, master]
+    branches: [ main, master ]
 jobs:
   test:
     timeout-minutes: 60

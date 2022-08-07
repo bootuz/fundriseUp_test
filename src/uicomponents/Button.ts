@@ -9,6 +9,7 @@ export class Button extends UIComponent {
     }
 
     async click() {
+        await this.locator.waitFor({state: 'visible'});
         await this.locator.click();
     }
 

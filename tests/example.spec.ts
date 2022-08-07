@@ -3,7 +3,7 @@ import { MainPage } from '../src/pages/MainPage';
 import { CreditCardModel, Currency } from '../src/pages/modals/DonationWindow';
 
 
-test.describe("Invalid credit card  tests", () => {
+test.describe("Invalid credit card tests", () => {
   test('Error massage shows when you fill incorrect сredit card data', async ({ page }) => {
     const mainPage = new MainPage(page);
     await mainPage.navigate();

@@ -1,4 +1,4 @@
 # Тестовое задание для Fundrise Up
 
 ### Отчет о прогоне тестов
-[Отчет](https://bootuz.github.io/fundriseUp_test/)
+Репорт о прогоне можно посмотреть [здесь](https://bootuz.github.io/fundriseUp_test/). Репорт загружается на отдельную ветку gh-pages откуда он уже деплоиться. 

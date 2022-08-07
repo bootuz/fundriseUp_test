@@ -34,7 +34,7 @@ const config: PlaywrightTestConfig = {
   /* Shared settings for all the projects below. See https://playwright.dev/docs/api/class-testoptions. */
   use: {
     /* Maximum time each action such as `click()` can take. Defaults to 0 (no limit). */
-    actionTimeout: 10000,
+    actionTimeout: 20000,
     /* Base URL to use in actions like `await page.goto('/')`. */
     baseURL: 'https://data.fundraiseup.com',
     headless: false,
@@ -47,14 +47,16 @@ const config: PlaywrightTestConfig = {
   /* Configure projects for major browsers */
   projects: [
     {
-      name: 'chrome',
+      name: 'Desktop Chrome',
       use: {
+        browserName: 'chromium',
         ...devices['Desktop Chrome'],
       },
     },
     {
       name: 'Mobile Chrome',
       use: {
+        browserName: 'chromium',
         ...devices['Pixel 5'],
       },
     },

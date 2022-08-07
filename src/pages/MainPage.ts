@@ -1,4 +1,4 @@
-import { Page } from "@playwright/test";
+import test, { Page } from "@playwright/test";
 import { Button } from "../uicomponents/Button";
 import { BasePage } from "./BasePage";
 import { DonationWindow } from "./modals/DonationWindow";
@@ -14,12 +14,14 @@ export class MainPage extends BasePage {
     }
 
     async navigate() {
-        await super.navigate('/qa-test-7R58U3');
+        await test.step("Navigate Main page", async () => {
+            await super.navigate('/qa-test-7R58U3');
+        });
     }
 
     async openDonationWindow() {
-        await this.giveNowButton.click();
+        await test.step("Open Donation Window", async () => {
+            await this.giveNowButton.click();
+        });
     }
-
-
 }

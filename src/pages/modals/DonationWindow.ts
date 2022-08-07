@@ -1,4 +1,4 @@
-import { Page } from "@playwright/test";
+import test, { Page } from "@playwright/test";
 import { Button } from "../../uicomponents/Button";
 import { Input } from "../../uicomponents/Input";
 import { Select } from "../../uicomponents/Select";
@@ -42,65 +42,95 @@ export class DonationWindow extends BasePage {
     }
 
     async selectCurrency(currency: string) {
-        await this.currencySelector.select(currency);
+        await test.step(`Select currency: ${currency}`, async () => {
+            await this.currencySelector.select(currency);
+        });
     }
 
     async swithToGiveMonthly() {
-        await this.giveMonthlyButton.click();
+        await test.step(`Switch to give monthly`, async () => {
+            await this.giveMonthlyButton.click();
+        });
     }
 
     async fillAmount(amount: string) {
-        await this.amountInput.fill(amount);
+        await test.step(`Fill amount ${amount}`, async () => {
+            await this.amountInput.fill(amount);
+        });
     }
 
     async clickDonateButton() {
-        await this.donateButton.click();
+        await test.step('Click donate button', async () => {
+            await this.donateButton.click();
+        });
     }
 
     async clickCoverFeeButton() {
-        await this.coverFeeButton.click();
+        await test.step('Click cover fee button', async () => {
+            await this.coverFeeButton.click();
+        });
     }
 
     async clickCreditCardButton() {
-        await this.creditCardButton.click();
+        await test.step('Click credit card button', async () => {
+            await this.creditCardButton.click();
+        });
     }
 
     async fillCreditCardNumber(number: string) {
-        await this.creditCardNumberInput.fill(number);
+        await test.step(`Fill credit card number: ${number}`, async () => {
+            await this.creditCardNumberInput.fill(number);
+        });
     }
 
     async fillExpirationDate(date: string) {
-        await this.expirationDateInput.fill(date);
+        await test.step(`Fill expiration date: ${date}`, async () => {
+            await this.expirationDateInput.fill(date);
+        });
     }
 
     async fillCVC(cvc: string) {
-        await this.CVCInput.fill(cvc);
+        await test.step(`Fill CVC: ${cvc}`, async () => {
+            await this.CVCInput.fill(cvc);
+        });
     }
 
     async fillCreditCardData(model: CreditCard) {
-        await this.fillCreditCardNumber(model.number);
-        await this.fillExpirationDate(model.expDate);
-        await this.fillCVC(model.cvc);
+        await test.step('Fill credit card data', async () => {
+            await this.fillCreditCardNumber(model.number);
+            await this.fillExpirationDate(model.expDate);
+            await this.fillCVC(model.cvc);
+        });
     }
 
     async clickContinueButton() {
-        await this.continueButton.click();
+        await test.step('Click continue button', async () => {
+            await this.continueButton.click();
+        });
     }
 
     async fillFirstName(firstName: string) {
-        await this.firstNameInput.fill(firstName);
+        await test.step('Fill first name', async () => {
+            await this.firstNameInput.fill(firstName);
+        });
     }
 
     async fillLastName(lastName: string) {
-        await this.lastNameInput.fill(lastName);
+        await test.step('Fill last name', async () => {
+            await this.lastNameInput.fill(lastName);
+        });
     }
 
     async fillEmail(email: string) {
-        await this.emailInput.fill(email);
+        await test.step('Fill email', async () => {
+            await this.emailInput.fill(email);
+        });
     }
 
     async clickDonateAmountButton() {
-        await this.donetaAmountButton.click()
+        await test.step('Click donate amount button', async () => {
+            await this.donetaAmountButton.click()
+        });
     }
 
 }

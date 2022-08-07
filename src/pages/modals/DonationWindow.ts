@@ -51,7 +51,7 @@ export class DonationWindow extends BasePage {
 
     async swithToGiveMonthly() {
         await test.step(`Switch to give monthly`, async () => {
-            await this.page.waitForLoadState('networkidle');
+            await this.giveMonthlyButton.waitUntil('visible');
             await this.giveMonthlyButton.click();
         });
     }
@@ -82,6 +82,7 @@ export class DonationWindow extends BasePage {
 
     async fillCreditCardNumber(number: string) {
         await test.step(`Fill credit card number: ${number}`, async () => {
+            await this.creditCardNumberInput.waitUntil('visible');
             await this.creditCardNumberInput.fill(number);
         });
     }

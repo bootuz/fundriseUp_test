@@ -9,10 +9,11 @@ export class Input extends UIComponent {
     }
 
     async fill(text: string) {
-        await this.locator.fill(text)
+        await this.locator.isVisible();
+        await this.locator.fill(text);
     }
 
     async press(key: string) {
-        await this.locator.press(key)
+        await this.locator.press(key);
     }
 }

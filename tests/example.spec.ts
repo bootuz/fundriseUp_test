@@ -20,6 +20,7 @@ test.describe("Invalid credit card tests", () => {
     await mainPage.donationWindow.fillLastName('Boziev');
     await mainPage.donationWindow.fillEmail('example@mail.ru')
     await mainPage.donationWindow.clickDonateAmountButton();
+    
     await page.waitForTimeout(4000);
     // await expect(page).toHaveTitle(/Playwright/);
   });

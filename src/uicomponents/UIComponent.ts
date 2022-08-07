@@ -7,4 +7,8 @@ export class UIComponent {
     constructor(locator: Locator) {
         this.locator = locator
     }
+
+    async waitUntil(state: "attached"|"detached"|"visible"|"hidden") {
+        await this.locator.waitFor({state: state});
+    }
 }

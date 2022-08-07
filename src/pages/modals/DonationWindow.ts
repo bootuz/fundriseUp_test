@@ -1,4 +1,4 @@
-import test, { Page } from "@playwright/test";
+import test, { Frame, FrameLocator, Page } from "@playwright/test";
 import { Button } from "../../uicomponents/Button";
 import { Input } from "../../uicomponents/Input";
 import { Select } from "../../uicomponents/Select";
@@ -21,23 +21,25 @@ export class DonationWindow extends BasePage {
     private emailInput: Input;
     private donetaAmountButton: Button;
 
+
     constructor(page: Page) {
         super(page)
-        this.donateButton = new Button(page.frameLocator('//iframe[@title="Donation Widget"]').locator('//button[@data-qa="donate-button"]'));
-        this.continueButton = new Button(page.frameLocator('//iframe[@title="Donation Widget"]').locator('//button[@data-qa="card-continue"]'));
-        this.coverFeeButton = new Button(page.frameLocator('//iframe[@title="Donation Widget"]').locator('//div[@data-qa="cover-fee-checkbox"]'));
-        this.currencySelector = new Select(page.frameLocator('//iframe[@title="Donation Widget"]').locator('//select[@data-qa="currency-selector"]'));
-        this.creditCardButton = new Button(page.frameLocator('//iframe[@title="Donation Widget"]').locator('//button[@data-qa="cc-button"]'));
-        this.giveMonthlyButton = new Button(page.frameLocator('//iframe[@title="Donation Widget"]').locator('//button[@data-qa="give-monthly"]'));
-        this.donetaAmountButton = new Button(page.frameLocator('//iframe[@title="Donation Widget"]').locator('//button[@data-qa="privacy-continue"]'));
-        this.expirationDateInput = new Input(page.frameLocator('//iframe[@title="Donation Widget"]').frameLocator('//iframe[@title="Secure expiration date input frame"]').locator('//input[@name="exp-date"]'));
+        const donationWidget = page.frameLocator('//iframe[@title="Donation Widget"]');
+        this.donateButton = new Button(donationWidget.locator('//button[@data-qa="donate-button"]'));
+        this.continueButton = new Button(donationWidget.locator('//button[@data-qa="card-continue"]'));
+        this.coverFeeButton = new Button(donationWidget.locator('//div[@data-qa="cover-fee-checkbox"]'));
+        this.currencySelector = new Select(donationWidget.locator('//select[@data-qa="currency-selector"]'));
+        this.creditCardButton = new Button(donationWidget.locator('//button[@data-qa="cc-button"]'));
+        this.giveMonthlyButton = new Button(donationWidget.locator('//button[@data-qa="give-monthly"]'));
+        this.donetaAmountButton = new Button(donationWidget.locator('//button[@data-qa="privacy-continue"]'));
+        this.expirationDateInput = new Input(donationWidget.frameLocator('//iframe[@title="Secure expiration date input frame"]').locator('//input[@name="exp-date"]'));
        
-        this.CVCInput = new Input(page.frameLocator('//iframe[@title="Donation Widget"]').frameLocator('//iframe[@title="Secure CVC input frame"]').locator('//input[@name="cvc"]'));
-        this.emailInput = new Input(page.frameLocator('//iframe[@title="Donation Widget"]').locator('//input[@data-qa="personal-email"]'));
-        this.amountInput = new Input(page.frameLocator('//iframe[@title="Donation Widget"]').locator('//input[@data-qa="amount"]'));
-        this.lastNameInput = new Input(page.frameLocator('//iframe[@title="Donation Widget"]').locator('//input[@data-qa="personal-last-name"]'));
-        this.firstNameInput = new Input(page.frameLocator('//iframe[@title="Donation Widget"]').locator('//input[@data-qa="personal-first-name"]'));
-        this.creditCardNumberInput = new Input(page.frameLocator('//iframe[@title="Donation Widget"]').frameLocator('//iframe[@title="Secure card number input frame"]').locator('//input[@placeholder="Card number"]'));
+        this.CVCInput = new Input(donationWidget.frameLocator('//iframe[@title="Secure CVC input frame"]').locator('//input[@name="cvc"]'));
+        this.emailInput = new Input(donationWidget.locator('//input[@data-qa="personal-email"]'));
+        this.amountInput = new Input(donationWidget.locator('//input[@data-qa="amount"]'));
+        this.lastNameInput = new Input(donationWidget.locator('//input[@data-qa="personal-last-name"]'));
+        this.firstNameInput = new Input(donationWidget.locator('//input[@data-qa="personal-first-name"]'));
+        this.creditCardNumberInput = new Input(donationWidget.frameLocator('//iframe[@title="Secure card number input frame"]').locator('//input[@placeholder="Card number"]'));
 
     }
 
@@ -49,6 +51,7 @@ export class DonationWindow extends BasePage {
 
     async swithToGiveMonthly() {
         await test.step(`Switch to give monthly`, async () => {
+            await this.page.waitForLoadState('networkidle');
             await this.giveMonthlyButton.click();
         });
     }

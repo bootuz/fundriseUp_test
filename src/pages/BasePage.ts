@@ -1,14 +1,13 @@
-import { Page } from "@playwright/test";
-
+import { Page } from '@playwright/test'
 
 export class BasePage {
-    page: Page;
+    page: Page
 
     constructor(page: Page) {
-        this.page = page;
+        this.page = page
     }
 
     async navigate(path) {
-        await this.page.goto(path);
-    } 
+        await this.page.goto(path)
+    }
 }

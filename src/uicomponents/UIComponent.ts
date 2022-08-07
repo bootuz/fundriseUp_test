@@ -1,5 +1,4 @@
-import { Locator, Page } from "@playwright/test";
-
+import { Locator, Page } from '@playwright/test'
 
 export class UIComponent {
     locator: Locator
@@ -8,7 +7,7 @@ export class UIComponent {
         this.locator = locator
     }
 
-    async waitUntil(state: "attached"|"detached"|"visible"|"hidden") {
-        await this.locator.waitFor({state: state});
+    async waitUntil(state: 'attached' | 'detached' | 'visible' | 'hidden') {
+        await this.locator.waitFor({ state: state })
     }
 }

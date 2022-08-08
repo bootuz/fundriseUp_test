@@ -17,6 +17,8 @@
     "homepage": "https://github.com/bootuz/fundriseUp_test#readme",
     "devDependencies": {
         "@playwright/test": "^1.24.2",
+        "@typescript-eslint/eslint-plugin": "^5.32.0",
+        "@typescript-eslint/parser": "^5.32.0",
         "eslint": "^8.21.0",
         "eslint-config-prettier": "^8.5.0",
         "eslint-plugin-prettier": "^4.2.1",

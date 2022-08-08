@@ -82,7 +82,6 @@ export class DonationWindow extends BasePage {
 
     async swithToGiveMonthly() {
         await test.step(`Switch to give monthly`, async () => {
-            await this.giveMonthlyButton.waitUntil('visible')
             await this.giveMonthlyButton.click()
         })
     }

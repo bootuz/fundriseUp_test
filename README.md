@@ -3,7 +3,7 @@
 ### Запуск тестов в Github Actions
 
 1. Открываем [репозиторий](https://github.com/bootuz/fundriseUp_test)
-2. Заходим во вкладку Actions
+2. Заходим во вкладку [Actions](https://github.com/bootuz/fundriseUp_test/actions)
 3. Пеходим в workflow `Tests`
 4. И нажимаем кнопку `Run workflow`
 

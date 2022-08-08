@@ -3,25 +3,28 @@ import { Button } from '../../uicomponents/Button'
 import { Input } from '../../uicomponents/Input'
 import { Select } from '../../uicomponents/Select'
 import { BasePage } from '../BasePage'
+import { Popover } from './Popover'
 
 export class DonationWindow extends BasePage {
-    private giveMonthlyButton: Button
-    private currencySelector: Select
-    private donateButton: Button
-    private amountInput: Input
-    private coverFeeButton: Button
-    private creditCardButton: Button
-    private creditCardNumberInput: Input
-    private expirationDateInput: Input
-    private CVCInput: Input
-    private continueButton: Button
-    private firstNameInput: Input
-    private lastNameInput: Input
-    private emailInput: Input
-    private donetaAmountButton: Button
+    giveMonthlyButton: Button
+    currencySelector: Select
+    donateButton: Button
+    amountInput: Input
+    coverFeeButton: Button
+    creditCardButton: Button
+    creditCardNumberInput: Input
+    expirationDateInput: Input
+    CVCInput: Input
+    continueButton: Button
+    firstNameInput: Input
+    lastNameInput: Input
+    emailInput: Input
+    donetaAmountButton: Button
+    errorPopover: Popover
 
     constructor(page: Page) {
         super(page)
+        this.errorPopover = new Popover(page)
         const donationWidget = page.frameLocator('[title="Donation Widget"]')
         this.donateButton = new Button(
             donationWidget.locator('[data-qa="donate-button"]')
@@ -112,7 +115,6 @@ export class DonationWindow extends BasePage {
 
     async fillCreditCardNumber(number: string) {
         await test.step(`Fill credit card number: ${number}`, async () => {
-            await this.creditCardNumberInput.waitUntil('visible')
             await this.creditCardNumberInput.fill(number)
         })
     }

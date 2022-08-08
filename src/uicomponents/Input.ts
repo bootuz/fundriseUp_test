@@ -7,7 +7,7 @@ export class Input extends UIComponent {
     }
 
     async fill(text: string) {
-        await this.locator.isVisible()
+        await this.locator.click()
         await this.locator.fill(text)
     }
 

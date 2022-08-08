@@ -13,7 +13,7 @@ const config: PlaywrightTestConfig = {
     workers: 4,
     reporter: [['html', { open: 'always' }], ['list']],
     use: {
-        actionTimeout: 10000,
+        actionTimeout: 15000,
         baseURL: 'https://data.fundraiseup.com',
         headless: false,
         screenshot: 'only-on-failure',

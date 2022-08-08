@@ -14,7 +14,7 @@
 
 1. Скачиваем Node.JS [отсюда](https://nodejs.org/en/download/).
 2. В терминале клонируем репозиторий `git clone https://github.com/bootuz/fundriseUp_test.git`
-3. Переходим в папку с реопзиторием `cd $PWD/fundriseUp_test`
+3. Переходим в папку с репозиторием `cd fundriseUp_test`
 4. Устанавливаем зависимости командой `npm install package-lock.json`
 5. Запускаем тесты `npx playwright test`
    Отчеты после прогона откроются автоматически.

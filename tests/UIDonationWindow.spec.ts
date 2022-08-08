@@ -49,6 +49,7 @@ test.describe('Invalid credit card tests', () => {
         await mainPage.donationWindow.fillLastName('Boziev')
         await mainPage.donationWindow.fillEmail('example@mail.ru')
         await mainPage.donationWindow.clickDonateAmountButton()
+        
         await expect(
             mainPage.donationWindow.errorPopover.title.locator
         ).toBeVisible()

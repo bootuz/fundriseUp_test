@@ -17,10 +17,10 @@ test.describe('Invalid credit card tests', () => {
         await mainPage.donationWindow.clickCreditCardButton()
         await mainPage.donationWindow.fillCreditCardData(CreditCardModel)
         await mainPage.donationWindow.clickContinueButton()
-        // await mainPage.donationWindow.fillFirstName('Astemir')
-        // await mainPage.donationWindow.fillLastName('Boziev')
-        // await mainPage.donationWindow.fillEmail('example@mail.ru')
-        // await mainPage.donationWindow.clickDonateAmountButton()
+        await mainPage.donationWindow.fillFirstName('Astemir')
+        await mainPage.donationWindow.fillLastName('Boziev')
+        await mainPage.donationWindow.fillEmail('example@mail.ru')
+        await mainPage.donationWindow.clickDonateAmountButton()
 
         await expect(
             mainPage.donationWindow.errorPopover.title.locator
@@ -45,10 +45,10 @@ test.describe('Invalid credit card tests', () => {
         await mainPage.donationWindow.clickCreditCardButton()
         await mainPage.donationWindow.fillCreditCardData(CreditCardModel)
         await mainPage.donationWindow.clickContinueButton()
-        // await mainPage.donationWindow.fillFirstName('Astemir')
-        // await mainPage.donationWindow.fillLastName('Boziev')
-        // await mainPage.donationWindow.fillEmail('example@mail.ru')
-        // await mainPage.donationWindow.clickDonateAmountButton()
+        await mainPage.donationWindow.fillFirstName('Astemir')
+        await mainPage.donationWindow.fillLastName('Boziev')
+        await mainPage.donationWindow.fillEmail('example@mail.ru')
+        await mainPage.donationWindow.clickDonateAmountButton()
 
         await expect(
             mainPage.donationWindow.errorPopover.title.locator

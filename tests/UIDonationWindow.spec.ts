@@ -9,25 +9,25 @@ test.describe('Invalid credit card tests', () => {
         const mainPage = new MainPage(page)
         await mainPage.navigate()
         await mainPage.openDonationWindow()
-        await mainPage.donationWindow.swithToGiveMonthly()
-        await mainPage.donationWindow.selectCurrency(Currency.USD)
-        await mainPage.donationWindow.fillAmount('100')
-        await mainPage.donationWindow.clickDonateButton()
-        await mainPage.donationWindow.clickCoverFeeButton()
-        await mainPage.donationWindow.clickCreditCardButton()
-        await mainPage.donationWindow.fillCreditCardData(CreditCardModel)
-        await mainPage.donationWindow.clickContinueButton()
-        await mainPage.donationWindow.fillFirstName('Astemir')
-        await mainPage.donationWindow.fillLastName('Boziev')
-        await mainPage.donationWindow.fillEmail('example@mail.ru')
-        await mainPage.donationWindow.clickDonateAmountButton()
+        await mainPage.onDonationWindow.swithToGiveMonthly()
+        await mainPage.onDonationWindow.selectCurrency(Currency.USD)
+        await mainPage.onDonationWindow.fillAmount('100')
+        await mainPage.onDonationWindow.clickDonateButton()
+        await mainPage.onDonationWindow.clickCoverFeeButton()
+        await mainPage.onDonationWindow.clickCreditCardButton()
+        await mainPage.onDonationWindow.fillCreditCardData(CreditCardModel)
+        await mainPage.onDonationWindow.clickContinueButton()
+        await mainPage.onDonationWindow.fillFirstName('Astemir')
+        await mainPage.onDonationWindow.fillLastName('Boziev')
+        await mainPage.onDonationWindow.fillEmail('example@mail.ru')
+        await mainPage.onDonationWindow.clickDonateAmountButton()
 
         await expect(
-            mainPage.donationWindow.errorPopover.title.locator
+            mainPage.onDonationWindow.errorPopover.title.locator
         ).toBeVisible()
 
         await expect(
-            mainPage.donationWindow.continueButton.locator
+            mainPage.onDonationWindow.continueButton.locator
         ).toBeDisabled()
     })
 
@@ -37,25 +37,25 @@ test.describe('Invalid credit card tests', () => {
         const mainPage = new MainPage(page)
         await mainPage.navigate()
         await mainPage.openDonationWindow()
-        await mainPage.donationWindow.swithToGiveMonthly()
-        await mainPage.donationWindow.selectCurrency(Currency.USD)
-        await mainPage.donationWindow.fillAmount('100')
-        await mainPage.donationWindow.clickDonateButton()
-        await mainPage.donationWindow.clickCoverFeeButton()
-        await mainPage.donationWindow.clickCreditCardButton()
-        await mainPage.donationWindow.fillCreditCardData(CreditCardModel)
-        await mainPage.donationWindow.clickContinueButton()
-        await mainPage.donationWindow.fillFirstName('Astemir')
-        await mainPage.donationWindow.fillLastName('Boziev')
-        await mainPage.donationWindow.fillEmail('example@mail.ru')
-        await mainPage.donationWindow.clickDonateAmountButton()
+        await mainPage.onDonationWindow.swithToGiveMonthly()
+        await mainPage.onDonationWindow.selectCurrency(Currency.USD)
+        await mainPage.onDonationWindow.fillAmount('100')
+        await mainPage.onDonationWindow.clickDonateButton()
+        await mainPage.onDonationWindow.clickCoverFeeButton()
+        await mainPage.onDonationWindow.clickCreditCardButton()
+        await mainPage.onDonationWindow.fillCreditCardData(CreditCardModel)
+        await mainPage.onDonationWindow.clickContinueButton()
+        await mainPage.onDonationWindow.fillFirstName('Astemir')
+        await mainPage.onDonationWindow.fillLastName('Boziev')
+        await mainPage.onDonationWindow.fillEmail('example@mail.ru')
+        await mainPage.onDonationWindow.clickDonateAmountButton()
 
         await expect(
-            mainPage.donationWindow.errorPopover.title.locator
+            mainPage.onDonationWindow.errorPopover.title.locator
         ).toBeVisible()
 
         await expect(
-            mainPage.donationWindow.continueButton.locator
+            mainPage.onDonationWindow.continueButton.locator
         ).toBeDisabled()
     })
 })

@@ -7,7 +7,7 @@ import { DonationWindow } from './modals/DonationWindow'
 export class MainPage extends BasePage {
     private giveNowButton: Button
     private loader: Loader
-    donationWindow: DonationWindow
+    private donationWindow: DonationWindow
 
     constructor(page: Page) {
         super(page)
@@ -29,5 +29,9 @@ export class MainPage extends BasePage {
             await this.giveNowButton.click()
             await this.loader.waitUntilInvisible()
         })
+    }
+
+    get onDonationWindow() {
+        return this.donationWindow
     }
 }
